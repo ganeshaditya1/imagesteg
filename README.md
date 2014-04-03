@@ -1,4 +1,4 @@
-imagesteg
+Imagesteg
 =========
 
 This software uses AES to encrypt text and place it in images
