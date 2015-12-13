@@ -1,8 +1,6 @@
 
 class mat16 implements tables
 {
-
-//C++ TO JAVA CONVERTER TODO TASK: Java has no concept of a 'friend' class:
 	public int[][] mat = new int[4][4];
 
 	public mat16()
@@ -32,8 +30,6 @@ class mat16 implements tables
 	public final String toString()
 	{
 		String output = "";
-//C++ TO JAVA CONVERTER TODO TASK: Java does not have an equivalent for pointers to value types:
-//ORIGINAL LINE: sbyte * temp = new sbyte();
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
@@ -63,10 +59,8 @@ class mat16 implements tables
 		{
 			for (int j = 0; j < 4; j++)
 			{
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
 				int row = (mat[i][j] & 0xf0) >> 4;
 				int column = (mat[i][j] & 0xf);
-
 				mat[i][j] = sbox[row][column];
 			}
 		}
@@ -78,10 +72,8 @@ class mat16 implements tables
 		{
 			for (int j = 0; j < 4; j++)
 			{
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
 				int row = (mat[i][j] & 0xf0) >> 4;
 				int column = (mat[i][j] & 0xf);
-
 				mat[i][j] = invsbox[row][column];
 			}
 		}
@@ -192,7 +184,7 @@ class mat16 implements tables
 	}
 	public final int eLookup(int number)
 	{
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		int row = (number & 0xf0) >> 4;
 		int column = (number & 0xf);
 		//cout<<E[row][column]<<" ";
@@ -200,7 +192,7 @@ class mat16 implements tables
 	}
 	public final int lLookup(int number)
 	{
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		int row = (number & 0xf0) >> 4;
 		int column = (number & 0xf);
 		//cout<<L[13][4]<<" ";
@@ -278,8 +270,6 @@ class strip implements tables
 	}
 	public final void rcon(int row)
 	{
-//C++ TO JAVA CONVERTER TODO TASK: Java does not have an equivalent for pointers to value types:
-//ORIGINAL LINE: int * sample;
 		int sample[];
 		sample = rcon2[row];
 		copy(sample);
@@ -287,13 +277,13 @@ class strip implements tables
 	public final void process()
 	{
 		// sboxes
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		str[0] = sbox[(str[0] & 0xf0) >> 4][str[0] & 0xf];
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		str[1] = sbox[(str[1] & 0xf0) >> 4][str[1] & 0xf];
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		str[2] = sbox[(str[2] & 0xf0) >> 4][str[2] & 0xf];
-//C++ TO JAVA CONVERTER WARNING: The right shift operator was not replaced by Java's logical right shift operator since the left operand was not confirmed to be of an unsigned type, but you should review whether the logical right shift operator (>>>) is more appropriate:
+
 		str[3] = sbox[(str[3] & 0xf0) >> 4][str[3] & 0xf];
 
 		// rotate
@@ -389,11 +379,8 @@ public class GlobalMembersAes implements tables
 		mat16 inp = new mat16(input);
 		mat16 ke = new mat16(key);
 		mat16[] expand = new mat16[10];
-//C++ TO JAVA CONVERTER WARNING: The following line was determined to be a copy constructor call - this should be verified and a copy constructor should be created if it does not yet exist:
-//ORIGINAL LINE: keyExpand(expand, *ke);
+
 		GlobalMembersAes.keyExpand(expand, ke);
-//C++ TO JAVA CONVERTER WARNING: The following line was determined to be a copy constructor call - this should be verified and a copy constructor should be created if it does not yet exist:
-//ORIGINAL LINE: mat16 eKey[10] = expand;
 		mat16[] eKey = expand;
 
 		for (int i = 0; i < 10; i++)
@@ -412,11 +399,9 @@ public class GlobalMembersAes implements tables
 		mat16 inp = new mat16(input);
 		mat16 ke = new mat16(key);
 		mat16[] expand = new mat16[10];
-//C++ TO JAVA CONVERTER WARNING: The following line was determined to be a copy constructor call - this should be verified and a copy constructor should be created if it does not yet exist:
-//ORIGINAL LINE: keyExpand(expand, *ke);
+
 		expand = GlobalMembersAes.keyExpand(expand, ke);
-//C++ TO JAVA CONVERTER WARNING: The following line was determined to be a copy constructor call - this should be verified and a copy constructor should be created if it does not yet exist:
-//ORIGINAL LINE: mat16 eKey[10] = expand;
+
 		mat16[] eKey = expand;
 
 		for (int i = 9; i >= 0; i--)
