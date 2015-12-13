@@ -495,14 +495,4 @@ public class GlobalMembersAes implements tables
 			}
 		}
 	}
-
-
-
-	public static void main( String[] arguments)
-	{
-
-
-
-
-	}
 }
